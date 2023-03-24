@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "event",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "therapist": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "string"
+    },
+    "bookingtype": {
+      "type": "string"
+    },
+    "period": {
+      "type": "string"
+    },
+    "duration": {
+      "type": "string"
+    },
+    "fee": {
+      "type": "integer"
+    },
+    "timeslot": {
+      "type": "json"
+    },
+    "service": {
+      "type": "string"
+    }
+  }
+}

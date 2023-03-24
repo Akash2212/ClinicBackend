@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bookings",
+  "info": {
+    "singularName": "booking",
+    "pluralName": "bookings",
+    "displayName": "booking",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "customer_name": {
+      "type": "string"
+    },
+    "therapist_name": {
+      "type": "string"
+    },
+    "service": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "timeslot": {
+      "type": "string"
+    },
+    "therapist_email": {
+      "type": "string"
+    }
+  }
+}
