@@ -22,7 +22,12 @@ module.exports = {
 
     for (let i = 0; i < eventTsRes.length; i++) {
       for (let k = 0; k < eventTsRes[i].timeslot.length; k++) {
-        if (eventTsRes[i].timeslot[k].day === ctx.params.day) {
+        if (
+          eventTsRes[i].timeslot[k].day ===
+          new Date(ctx.params.date).toLocaleDateString("en-US", {
+            weekday: "long",
+          })
+        ) {
           eventTs.push({
             name: eventTsRes[i].therapist,
             timeslot: eventTsRes[i].timeslot[k].ts,
@@ -34,7 +39,12 @@ module.exports = {
 
     for (let i = 0; i < therapistTsRes.length; i++) {
       for (let k = 0; k < therapistTsRes[i].timeslot.length; k++) {
-        if (therapistTsRes[i].timeslot[k].day === ctx.params.day) {
+        if (
+          therapistTsRes[i].timeslot[k].day ===
+          new Date(ctx.params.date).toLocaleDateString("en-US", {
+            weekday: "long",
+          })
+        ) {
           therapistTs.push({
             name: therapistTsRes[i].name,
             timeslot: therapistTsRes[i].timeslot[k].ts,
@@ -51,7 +61,6 @@ module.exports = {
       for (var q = 0; q < therapistTs.length; q++) {
         if (eventTs[p].name === therapistTs[q].name) {
           if (eventTs[p].mode === "Offline") {
-            console.log("Same");
             if (eventTs[p].timeslot === therapistTs[q].timeslot) {
               resultTs.push({
                 name: eventTs[p].name,
@@ -74,12 +83,13 @@ module.exports = {
         //   }),
         //   ctx.params.day
         // );
-        if (
-          new Date(bookingTsRes[x].date).toLocaleDateString("en-US", {
-            weekday: "long",
-          }) === ctx.params.day
-        ) {
-          if (bookingTsRes[x].therapist_name === resultTs[y].name) {
+        // console.log(new Date(bookingTsRes[x].date));
+        // console.log(new Date(ctx.params.date));
+        if (bookingTsRes[x].therapist_name === resultTs[y].name) {
+          if (
+            new Date(bookingTsRes[x].date).getDate() ===
+            new Date(ctx.params.date).getDate()
+          ) {
             // console.log(
             //   bookingTsRes[x].therapist_name,
             //   bookingTsRes[x].timeslot,
@@ -92,6 +102,10 @@ module.exports = {
               break;
             }
           }
+          //else {
+          //   console.log({ name: resultTs[y].name, ts: resultTs[y].ts });
+          //   finalTs.push({ name: resultTs[y].name, ts: resultTs[y].ts });
+          // }
         }
       }
 

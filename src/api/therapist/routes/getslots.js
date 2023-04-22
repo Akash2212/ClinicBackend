@@ -4,7 +4,7 @@ module.exports = {
   routes: [
     {
       method: "GET",
-      path: "/getslots/:day",
+      path: "/getslots/:date/",
       handler: "getslots.findSlots",
       config: {
         policies: [],
